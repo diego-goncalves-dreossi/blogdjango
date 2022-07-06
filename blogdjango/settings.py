@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
-from email.policy import default
+#from email.policy import default
 #from logging.handlers import SysLogHandler
 from pathlib import Path
 import os
@@ -158,3 +158,5 @@ CKEDITOR_CONFIGS = {
     'width': 'auto',
     },
 }
+
+django_on_heroku.settings(locals())
