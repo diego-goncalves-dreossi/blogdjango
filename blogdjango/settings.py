@@ -28,14 +28,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG',default=False,cast=bool)
+DEBUG = False#config('DEBUG',default=False,cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*','https://blogdjango-dgd.herokuapp.com/']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    #'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -53,6 +54,9 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+
+    #'whitenoise.middleware.WhiteNoiseMiddleware',
+
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -159,4 +163,8 @@ CKEDITOR_CONFIGS = {
     },
 }
 
-django_on_heroku.settings(locals())
+#django_on_heroku.settings(locals())
+
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+#DEBUG_PROPAGATE_EXCEPTIONS = True

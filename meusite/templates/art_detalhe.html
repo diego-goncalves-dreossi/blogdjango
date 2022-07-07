@@ -3,10 +3,10 @@
 {% block 'titulo' %}Blog - Artigo{% endblock 'titulo' %}
 {% block 'header' %}
 
-{% if object.imagem %}
-<header class="masthead" style="background-image: url({{object.imagem.url}})">
+{% if art.imagem %}
+<header class="masthead" style="background-image: url({{art.imagem.url}})">
 {% else %}
-<header class="masthead" style="background-image: url( '/static/img/post-sample-image.jpg')">
+<!--<header class="masthead" style="background-image: url( '/static/img/post-sample-image.jpg')">-->
 {% endif %}
     <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
@@ -23,6 +23,7 @@
 {% block 'subtitulo-banner'%}{{art.autor}}{% endblock 'subtitulo-banner' %}
 
 {% block 'conteudo' %}
+
 {% if messages %}
 <ul class="messages">
     {% for message in messages %}
