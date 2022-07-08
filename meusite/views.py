@@ -61,3 +61,6 @@ class BlogDeleteView(LoginRequiredMixin,SuccessMessageMixin,DeleteView):
 
 class SobrePag(TemplateView):
     template_name = 'sobre.html'
+
+def handler404(request,exception):
+    return render(request,'notfound.html')

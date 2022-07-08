@@ -18,6 +18,7 @@ from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 
+
 urlpatterns = [
     path('',include('meusite.urls')),
     path('admin/', admin.site.urls),
@@ -26,6 +27,7 @@ urlpatterns = [
     path('contato/',include('contato.urls'))
 ]
 
+handler404 = "meusite.views.handler404"
 # Ver aqui dps pro deploy
 if settings.DEBUG:
     #urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
