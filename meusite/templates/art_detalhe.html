@@ -1,24 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block 'titulo' %}Blog - Artigo{% endblock 'titulo' %}
-{% block 'header' %}
 
-{% if art.imagem %}
-<header class="masthead" style="background-image: url({{art.imagem.url}})">
-{% else %}
-<!--<header class="masthead" style="background-image: url( '/static/img/post-sample-image.jpg')">-->
-{% endif %}
-    <div class="container position-relative px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-md-10 col-lg-8 col-xl-7">
-                <div class="site-heading">
-                    <h1></h1>   
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-{% endblock 'header' %}
+{% block 'background-image'%}
+    {% if art.imagem %}
+        {{art.imagem.url}}
+    {% else %}
+        '/static/img/post-sample-image.jpg'
+    {% endif %}
+{% endblock 'background-image' %}
+
+
 {% block 'titulo-banner'%}{{art.titulo}}{% endblock 'titulo-banner' %}
 {% block 'subtitulo-banner'%}{{art.autor}}{% endblock 'subtitulo-banner' %}
 

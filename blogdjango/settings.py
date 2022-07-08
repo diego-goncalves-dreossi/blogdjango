@@ -10,13 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
-#from email.policy import default
-#from logging.handlers import SysLogHandler
 from pathlib import Path
 import os
 from decouple import config
 from dj_database_url import parse as dburl
-import django_on_heroku
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False#config('DEBUG',default=False,cast=bool)
+DEBUG = config('DEBUG',default=False,cast=bool)
 
 ALLOWED_HOSTS = ['*','blogdjango-dgd.herokuapp.com']
 
@@ -37,7 +35,6 @@ ALLOWED_HOSTS = ['*','blogdjango-dgd.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
-    #'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -55,9 +52,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-
-    #'whitenoise.middleware.WhiteNoiseMiddleware',
-
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -159,7 +153,6 @@ EMAIL_HOST_USER = 'a90153a3efbf58'
 EMAIL_HOST_PASSWORD = '16af5bb826d502'
 EMAIL_PORT = '2525'
 
-#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 CKEDITOR_CONFIGS = {
 'default': {
@@ -168,8 +161,3 @@ CKEDITOR_CONFIGS = {
     },
 }
 
-#django_on_heroku.settings(locals())
-
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-#DEBUG_PROPAGATE_EXCEPTIONS = True

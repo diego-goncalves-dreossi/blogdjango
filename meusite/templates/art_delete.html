@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 {% block 'titulo' %}Blog - Deletar artigo{% endblock 'titulo' %}
-
+{% block 'background-image'%}
+    {% if art.imagem %}
+        {{art.imagem.url}}
+    {% else %}
+        '/static/img/post-sample-image.jpg'
+    {% endif %}
+{% endblock 'background-image' %}
 {% block 'titulo-banner'%}Deletar{% endblock 'titulo-banner' %}
 {% block 'subtitulo-banner'%}Registros{% endblock 'subtitulo-banner' %}
 

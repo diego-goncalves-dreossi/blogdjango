@@ -7,7 +7,7 @@ from . models import Artigo
 from django.contrib.messages.views import SuccessMessageMixin
 from .forms import ArtigoForm
 from django.contrib.auth.mixins import LoginRequiredMixin
-# ou from django.contrib.auth.decorators import login_required
+
 
 
 class BlogListView(ListView):
